@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 // Model você só irá criar a estrutura de como será a tabela no banco
 
-const UserSchema = new mongoose.Schema({
+interface userTypes extends Document{
+    email: string;
+    password: string;
+}
+const UserSchema= new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -31,4 +35,4 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('User',UserSchema)
 
-export default User;
+export default User ;
