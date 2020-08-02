@@ -3,12 +3,13 @@ import express, { Request, Response } from "express";
 
 //controles
 
-import authController from './controllers/authController'
+import UserController from './controllers/UserController';
 
 const routes = express.Router();
-const auth = new authController();
+const userController = new UserController();
 
-routes.post('/users', auth.create);
+routes.post('/users', userController.create);
+
 routes.get('/', (req: Request,res: Response)=>{
     res.send("aihsuas");
 })
