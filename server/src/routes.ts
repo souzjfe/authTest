@@ -3,17 +3,20 @@ import express, { Request, Response } from "express";
 
 //controles
 
-import authController from './controllers/authController'
+import UserController from './controllers/UserController';
+import AuthController from './controllers/AuthController';
 
 const routes = express.Router();
-const auth = new authController();
+const userController = new UserController();
+const authController = new AuthController(); 
 
-routes.post('/users', auth.create);
-routes.get('/', (req: Request,res: Response)=>{
+
+
+routes.get('/', (req: Request,res: Response) => {
     res.send("aihsuas");
-})
+});
 
-routes.post('/')
-
+routes.post('/authenticate',authController.autenticate)
+routes.post('/users', userController.create);
 
 export default routes;
